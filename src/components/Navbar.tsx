@@ -11,7 +11,9 @@ const Navbar = () => {
     <nav className="fixed top-0 left-0 right-0 z-50 glass-card">
       <div className="container mx-auto flex items-center justify-between h-16 px-4">
         <Link to="/" className="flex items-center gap-2">
-          <img src={logo} alt="MedNotes Logo" className="h-10 w-10 rounded-lg" />
+          <div className="h-10 w-10 rounded-lg border-2 border-primary/30 shadow-md bg-background flex items-center justify-center p-0.5">
+            <img src={logo} alt="MedNotes Logo" className="h-full w-full object-contain" />
+          </div>
           <span className="text-xl font-bold text-foreground">Modular MBBS</span>
         </Link>
 

@@ -32,7 +32,9 @@ const Login = () => {
           </Link>
 
           <div className="text-center mb-8">
-            <img src={logo} alt="MedNotes" className="h-14 w-14 mx-auto rounded-xl mb-3" />
+            <div className="h-14 w-14 mx-auto rounded-xl border-2 border-primary/30 shadow-md bg-background flex items-center justify-center p-0.5 mb-3">
+              <img src={logo} alt="MedNotes" className="h-full w-full object-contain" />
+            </div>
             <h1 className="text-2xl font-bold text-foreground">{isLogin ? "Welcome Back" : "Create Account"}</h1>
             <p className="text-sm text-muted-foreground mt-1">
               {isLogin ? "Sign in to access your notes" : "Join MedNotes and start studying"}

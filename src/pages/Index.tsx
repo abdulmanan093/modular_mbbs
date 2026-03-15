@@ -53,7 +53,9 @@ const Index = () => {
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl mx-auto text-center space-y-6">
             <motion.div initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.6, type: "spring" }}>
-              <img src={logo} alt="Modular MBBS" className="h-20 w-20 mx-auto rounded-2xl shadow-lg glow-teal mb-4 animate-float" />
+              <div className="h-20 w-20 mx-auto rounded-2xl border-2 border-primary/30 shadow-lg glow-teal mb-4 animate-float bg-background flex items-center justify-center p-1">
+                <img src={logo} alt="Modular MBBS" className="h-full w-full object-contain" />
+              </div>
             </motion.div>
             <motion.h1
               className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight text-foreground glow-text"
