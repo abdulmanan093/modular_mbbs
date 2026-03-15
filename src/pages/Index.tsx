@@ -266,7 +266,7 @@ const Index = () => {
                   </Button>
                 </a>
                 <a href="#contact">
-                  <Button size="lg" variant="outline" className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 px-8 gap-2">
+                  <Button size="lg" variant="outline" className="border-primary-foreground/30 bg-transparent text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground px-8 gap-2">
                     <MessageCircle className="h-4 w-4" /> Contact Us
                   </Button>
                 </a>

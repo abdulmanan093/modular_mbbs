@@ -7,7 +7,7 @@ const Footer = () => (
       <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
         <div className="space-y-4">
           <div className="flex items-center gap-2">
-            <img src={logo} alt="MedNotes" className="h-10 w-10 rounded-lg" />
+            <img src={logo} alt="MedNotes" className="h-10 w-10 rounded-xl shadow-lg border border-border/50 bg-card" />
             <span className="text-xl font-bold">Modular MBBS</span>
           </div>
           <p className="text-sm opacity-70">Your complete MBBS notes library. Access organized medical notes for every year, subject, and chapter.</p>
