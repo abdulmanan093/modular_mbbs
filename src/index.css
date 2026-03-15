@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -60,19 +60,31 @@
   }
   body {
     @apply bg-background text-foreground;
-    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-family: "Plus Jakarta Sans", sans-serif;
   }
 }
 
 @layer utilities {
   .gradient-primary {
-    background: linear-gradient(135deg, hsl(var(--gradient-start)), hsl(var(--gradient-end)));
+    background: linear-gradient(
+      135deg,
+      hsl(var(--gradient-start)),
+      hsl(var(--gradient-end))
+    );
   }
   .gradient-warm {
-    background: linear-gradient(135deg, hsl(var(--gradient-start)), hsl(var(--gradient-warm)));
+    background: linear-gradient(
+      135deg,
+      hsl(var(--gradient-start)),
+      hsl(var(--gradient-warm))
+    );
   }
   .gradient-text {
-    background: linear-gradient(135deg, hsl(var(--gradient-start)), hsl(var(--gradient-end)));
+    background: linear-gradient(
+      135deg,
+      hsl(var(--gradient-start)),
+      hsl(var(--gradient-end))
+    );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -83,30 +95,56 @@
     border: 1px solid hsl(var(--border) / 0.6);
   }
   .glow-teal {
-    box-shadow: 0 0 30px -5px hsl(172 66% 50% / 0.3), 0 0 60px -10px hsl(260 60% 60% / 0.15);
+    box-shadow:
+      0 0 30px -5px hsl(172 66% 50% / 0.3),
+      0 0 60px -10px hsl(260 60% 60% / 0.15);
   }
   .glow-text {
     text-shadow: 0 0 40px hsl(172 66% 50% / 0.4);
   }
+  .logo-glow {
+    filter: drop-shadow(0 2px 10px hsl(var(--foreground) / 0.18))
+      drop-shadow(0 0 18px hsl(var(--gradient-start) / 0.35));
+  }
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-12px); }
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
 }
 
 @keyframes pulse-glow {
-  0%, 100% { box-shadow: 0 0 20px -5px hsl(172 66% 50% / 0.3); }
-  50% { box-shadow: 0 0 40px -5px hsl(172 66% 50% / 0.5), 0 0 80px -10px hsl(260 60% 60% / 0.2); }
+  0%,
+  100% {
+    box-shadow: 0 0 20px -5px hsl(172 66% 50% / 0.3);
+  }
+  50% {
+    box-shadow:
+      0 0 40px -5px hsl(172 66% 50% / 0.5),
+      0 0 80px -10px hsl(260 60% 60% / 0.2);
+  }
 }
 
 @keyframes shimmer {
-  0% { background-position: -200% center; }
-  100% { background-position: 200% center; }
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
 }
 
-.animate-float { animation: float 3s ease-in-out infinite; }
-.animate-pulse-glow { animation: pulse-glow 3s ease-in-out infinite; }
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+.animate-pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
 .animate-shimmer {
   background-size: 200% auto;
   animation: shimmer 3s linear infinite;
