@@ -1,5 +1,4 @@
-import { Link } from "react-router-dom";
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Mail, Phone } from "lucide-react";
 import logo from "@/assets/logo.png";
 
 const Footer = () => (
@@ -20,7 +19,6 @@ const Footer = () => (
             <li><a href="#features" className="hover:opacity-100 transition-opacity">Features</a></li>
             <li><a href="#how-it-works" className="hover:opacity-100 transition-opacity">How It Works</a></li>
             <li><a href="#testimonials" className="hover:opacity-100 transition-opacity">Testimonials</a></li>
-            <li><Link to="/login" className="hover:opacity-100 transition-opacity">Login</Link></li>
           </ul>
         </div>
 

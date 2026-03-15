@@ -1,8 +1,7 @@
-import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import {
-  BookOpen, FileText, Smartphone, Shield, UserPlus, GraduationCap,
-  FolderOpen, Zap, Star, Download, ChevronRight, Quote
+  BookOpen, FileText, Smartphone, Shield, Download,
+  FolderOpen, Zap, Star, Quote, MessageCircle, AppWindow
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
@@ -11,7 +10,12 @@ import logo from "@/assets/logo.png";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
-  visible: (i: number) => ({ opacity: 1, y: 0, transition: { delay: i * 0.1, duration: 0.5 } }),
+  visible: (i: number) => ({ opacity: 1, y: 0, transition: { delay: i * 0.12, duration: 0.6 } }),
+};
+
+const scaleIn = {
+  hidden: { opacity: 0, scale: 0.85 },
+  visible: (i: number) => ({ opacity: 1, scale: 1, transition: { delay: i * 0.1, duration: 0.5 } }),
 };
 
 const features = [
@@ -22,10 +26,10 @@ const features = [
 ];
 
 const steps = [
-  { icon: UserPlus, title: "Create Account", desc: "Sign up with your details in seconds." },
-  { icon: GraduationCap, title: "Select Your Year", desc: "Choose your MBBS year to see relevant content." },
-  { icon: FolderOpen, title: "Browse Content", desc: "Navigate through subjects and chapters easily." },
-  { icon: Zap, title: "Study Instantly", desc: "Open and study notes right away." },
+  { icon: Download, title: "Download the App", desc: "Get the Modular MBBS app on your Android phone." },
+  { icon: AppWindow, title: "Browse All Content", desc: "Explore notes for all 5 MBBS years, blocks, subjects & chapters." },
+  { icon: FolderOpen, title: "Open & Study Notes", desc: "View high-quality PDFs instantly, anytime, anywhere." },
+  { icon: MessageCircle, title: "Contact Us", desc: "Need help or have questions? Reach out to us directly." },
 ];
 
 const testimonials = [
@@ -41,18 +45,19 @@ const Index = () => {
 
       {/* Hero */}
       <section className="relative pt-32 pb-20 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-secondary via-background to-background" />
-        <div className="absolute top-20 right-0 w-96 h-96 rounded-full bg-primary/5 blur-3xl" />
-        <div className="absolute bottom-0 left-0 w-72 h-72 rounded-full bg-accent/5 blur-3xl" />
+        <div className="absolute inset-0 bg-gradient-to-br from-muted via-background to-background" />
+        <div className="absolute top-10 right-10 w-[500px] h-[500px] rounded-full bg-primary/5 blur-[100px] animate-pulse-glow" />
+        <div className="absolute bottom-0 left-0 w-80 h-80 rounded-full bg-accent/5 blur-[80px]" />
+        <div className="absolute top-1/2 left-1/3 w-40 h-40 rounded-full bg-primary/3 blur-[60px]" />
 
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl mx-auto text-center space-y-6">
-            <motion.div initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.5 }}>
-              <img src={logo} alt="Modular MBBS" className="h-20 w-20 mx-auto rounded-2xl shadow-lg mb-4 animate-float" />
+            <motion.div initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.6, type: "spring" }}>
+              <img src={logo} alt="Modular MBBS" className="h-20 w-20 mx-auto rounded-2xl shadow-lg glow-teal mb-4 animate-float" />
             </motion.div>
             <motion.h1
-              className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight text-foreground"
-              initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2, duration: 0.6 }}
+              className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight text-foreground glow-text"
+              initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2, duration: 0.7 }}
             >
               Your Complete{" "}
               <span className="gradient-text">MBBS Notes</span>{" "}
@@ -68,14 +73,14 @@ const Index = () => {
               className="flex flex-col sm:flex-row items-center justify-center gap-3"
               initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.5, duration: 0.6 }}
             >
-              <Link to="/login">
-                <Button size="lg" className="gradient-primary border-0 text-base px-8 shadow-lg shadow-primary/25">
-                  Get Started <ChevronRight className="h-4 w-4 ml-1" />
-                </Button>
-              </Link>
               <a href="https://expo.dev/artifacts/eas/2ud2sSUQfnou92yoHyFJ6z.apk" target="_blank" rel="noopener noreferrer">
-                <Button size="lg" variant="outline" className="text-base px-8 gap-2">
-                  <Download className="h-4 w-4" /> Download App
+                <Button size="lg" className="gradient-primary border-0 text-base px-8 shadow-lg glow-teal gap-2">
+                  <Download className="h-5 w-5" /> Download App
+                </Button>
+              </a>
+              <a href="#contact">
+                <Button size="lg" variant="outline" className="text-base px-8 gap-2 border-border hover:border-primary/50 hover:bg-primary/5">
+                  <MessageCircle className="h-4 w-4" /> Contact Us
                 </Button>
               </a>
             </motion.div>
@@ -85,9 +90,9 @@ const Index = () => {
               initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.7 }}
             >
               <span className="flex items-center gap-1"><Star className="h-4 w-4 text-yellow-500 fill-yellow-500" /> 4.9 Rating</span>
-              <span>•</span>
+              <span className="text-border">•</span>
               <span>1000+ Students</span>
-              <span>•</span>
+              <span className="text-border">•</span>
               <span>500+ Notes</span>
             </motion.div>
           </div>
@@ -98,8 +103,12 @@ const Index = () => {
       <section id="features" className="py-20 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="text-center mb-14">
-            <h2 className="text-3xl font-bold text-foreground">Why Students Love <span className="gradient-text">MedNotes</span></h2>
-            <p className="mt-3 text-muted-foreground max-w-lg mx-auto">Everything you need to ace your exams, organized the way your curriculum is structured.</p>
+            <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-3xl font-bold text-foreground">
+              Why Students Love <span className="gradient-text">MedNotes</span>
+            </motion.h2>
+            <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.2 }} className="mt-3 text-muted-foreground max-w-lg mx-auto">
+              Everything you need to ace your exams, organized the way your curriculum is structured.
+            </motion.p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {features.map((f, i) => (
@@ -110,9 +119,10 @@ const Index = () => {
                 whileInView="visible"
                 viewport={{ once: true }}
                 variants={fadeUp}
-                className="group bg-card rounded-xl p-6 border border-border hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300"
+                whileHover={{ y: -6, transition: { duration: 0.2 } }}
+                className="group bg-card rounded-xl p-6 border border-border hover:border-primary/40 hover:shadow-lg hover:shadow-primary/10 transition-all duration-300"
               >
-                <div className="h-12 w-12 rounded-lg gradient-primary flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                <div className="h-12 w-12 rounded-lg gradient-primary flex items-center justify-center mb-4 group-hover:scale-110 transition-transform glow-teal">
                   <f.icon className="h-6 w-6 text-primary-foreground" />
                 </div>
                 <h3 className="font-semibold text-foreground mb-2">{f.title}</h3>
@@ -127,8 +137,12 @@ const Index = () => {
       <section id="how-it-works" className="py-20">
         <div className="container mx-auto px-4">
           <div className="text-center mb-14">
-            <h2 className="text-3xl font-bold text-foreground">How It <span className="gradient-text">Works</span></h2>
-            <p className="mt-3 text-muted-foreground">Get started in 4 simple steps</p>
+            <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-3xl font-bold text-foreground">
+              How It <span className="gradient-text">Works</span>
+            </motion.h2>
+            <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.2 }} className="mt-3 text-muted-foreground">
+              Get started in 4 simple steps
+            </motion.p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 relative">
             {steps.map((s, i) => (
@@ -138,10 +152,11 @@ const Index = () => {
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
-                variants={fadeUp}
+                variants={scaleIn}
+                whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
                 className="text-center relative"
               >
-                <div className="h-16 w-16 rounded-full gradient-primary flex items-center justify-center mx-auto mb-4 shadow-lg shadow-primary/20">
+                <div className="h-16 w-16 rounded-full gradient-primary flex items-center justify-center mx-auto mb-4 shadow-lg glow-teal">
                   <s.icon className="h-7 w-7 text-primary-foreground" />
                 </div>
                 <div className="absolute top-7 left-1/2 w-full h-0.5 bg-border hidden lg:block -z-10" style={{ display: i === 3 ? "none" : undefined }} />
@@ -158,15 +173,24 @@ const Index = () => {
       <section className="py-20 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="text-center mb-14">
-            <h2 className="text-3xl font-bold text-foreground">Explore the <span className="gradient-text">Curriculum</span></h2>
-            <p className="mt-3 text-muted-foreground">Structured content for all 5 MBBS years</p>
+            <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-3xl font-bold text-foreground">
+              Explore the <span className="gradient-text">Curriculum</span>
+            </motion.h2>
+            <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.2 }} className="mt-3 text-muted-foreground">
+              Structured content for all 5 MBBS years
+            </motion.p>
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 max-w-3xl mx-auto">
-            {[1, 2, 3, 4, 5].map((year) => (
+            {[1, 2, 3, 4, 5].map((year, i) => (
               <motion.div
                 key={year}
-                whileHover={{ scale: 1.05, y: -4 }}
-                className="bg-card rounded-xl border border-border p-6 text-center cursor-pointer hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5 transition-all"
+                custom={i}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={scaleIn}
+                whileHover={{ scale: 1.08, y: -6 }}
+                className="bg-card rounded-xl border border-border p-6 text-center cursor-pointer hover:border-primary/40 hover:shadow-lg hover:shadow-primary/10 transition-all"
               >
                 <div className="text-3xl font-extrabold gradient-text">{year}</div>
                 <div className="text-sm font-medium text-foreground mt-1">Year {year}</div>
@@ -183,7 +207,9 @@ const Index = () => {
       <section id="testimonials" className="py-20">
         <div className="container mx-auto px-4">
           <div className="text-center mb-14">
-            <h2 className="text-3xl font-bold text-foreground">What Students <span className="gradient-text">Say</span></h2>
+            <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-3xl font-bold text-foreground">
+              What Students <span className="gradient-text">Say</span>
+            </motion.h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
             {testimonials.map((t, i) => (
@@ -194,7 +220,8 @@ const Index = () => {
                 whileInView="visible"
                 viewport={{ once: true }}
                 variants={fadeUp}
-                className="bg-card rounded-xl border border-border p-6 relative"
+                whileHover={{ y: -4 }}
+                className="bg-card rounded-xl border border-border p-6 relative hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300"
               >
                 <Quote className="h-8 w-8 text-primary/20 absolute top-4 right-4" />
                 <div className="flex items-center gap-3 mb-4">
@@ -225,21 +252,22 @@ const Index = () => {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="gradient-primary rounded-2xl p-10 md:p-16 text-center text-primary-foreground relative overflow-hidden"
+            className="gradient-primary rounded-2xl p-10 md:p-16 text-center text-primary-foreground relative overflow-hidden glow-teal"
           >
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,hsl(172_66%_40%/0.3),transparent)]" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,hsl(260_60%_60%/0.3),transparent)]" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,hsl(172_66%_50%/0.2),transparent)]" />
             <div className="relative z-10 space-y-5">
               <h2 className="text-3xl md:text-4xl font-bold">Start Studying Smarter Today</h2>
-              <p className="opacity-90 max-w-md mx-auto">Join thousands of MBBS students already using MedNotes to ace their exams.</p>
+              <p className="opacity-90 max-w-md mx-auto">Download the app and access organized MBBS notes for all years, blocks, subjects and chapters.</p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
-                <Link to="/login">
-                  <Button size="lg" className="bg-primary-foreground text-primary hover:bg-primary-foreground/90 px-8">
-                    Sign Up Free
-                  </Button>
-                </Link>
                 <a href="https://expo.dev/artifacts/eas/2ud2sSUQfnou92yoHyFJ6z.apk" target="_blank" rel="noopener noreferrer">
-                  <Button size="lg" variant="outline" className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 px-8 gap-2">
+                  <Button size="lg" className="bg-primary-foreground text-primary hover:bg-primary-foreground/90 px-8 gap-2">
                     <Download className="h-4 w-4" /> Download App
+                  </Button>
+                </a>
+                <a href="#contact">
+                  <Button size="lg" variant="outline" className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 px-8 gap-2">
+                    <MessageCircle className="h-4 w-4" /> Contact Us
                   </Button>
                 </a>
               </div>
