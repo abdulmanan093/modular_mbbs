@@ -41,7 +41,9 @@ const Dashboard = () => {
       <aside className={`fixed inset-y-0 left-0 z-40 w-64 bg-card border-r border-border transform transition-transform lg:translate-x-0 ${sidebarOpen ? "translate-x-0" : "-translate-x-full"}`}>
         <div className="p-4 border-b border-border flex items-center justify-between">
           <Link to="/" className="flex items-center gap-2">
-            <img src={logo} alt="MedNotes" className="h-8 w-8 rounded-lg" />
+            <div className="h-8 w-8 rounded-lg border-2 border-primary/30 shadow-md bg-background flex items-center justify-center p-0.5">
+              <img src={logo} alt="MedNotes" className="h-full w-full object-contain" />
+            </div>
             <span className="font-bold text-foreground">Modular MBBS</span>
           </Link>
           <button className="lg:hidden text-muted-foreground" onClick={() => setSidebarOpen(false)}><X className="h-5 w-5" /></button>
