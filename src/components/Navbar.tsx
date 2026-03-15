@@ -22,16 +22,10 @@ const Navbar = () => {
           <a href="#testimonials" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">Testimonials</a>
           <a href="#contact" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">Contact</a>
           <a href="https://expo.dev/artifacts/eas/2ud2sSUQfnou92yoHyFJ6z.apk" target="_blank" rel="noopener noreferrer">
-            <Button variant="outline" size="sm" className="gap-2">
+            <Button size="sm" className="gradient-primary border-0 gap-2 glow-teal">
               <Download className="h-4 w-4" /> Download App
             </Button>
           </a>
-          <Link to="/login">
-            <Button variant="ghost" size="sm">Login</Button>
-          </Link>
-          <Link to="/login">
-            <Button size="sm" className="gradient-primary border-0">Get Started</Button>
-          </Link>
         </div>
 
         {/* Mobile toggle */}
@@ -48,14 +42,10 @@ const Navbar = () => {
           <a href="#testimonials" onClick={() => setOpen(false)} className="block py-2 text-sm text-muted-foreground">Testimonials</a>
           <a href="#contact" onClick={() => setOpen(false)} className="block py-2 text-sm text-muted-foreground">Contact</a>
           <a href="https://expo.dev/artifacts/eas/2ud2sSUQfnou92yoHyFJ6z.apk" target="_blank" rel="noopener noreferrer" className="block">
-            <Button variant="outline" size="sm" className="w-full gap-2">
+            <Button size="sm" className="w-full gradient-primary border-0 gap-2 glow-teal">
               <Download className="h-4 w-4" /> Download App
             </Button>
           </a>
-          <div className="flex gap-2 pt-2">
-            <Link to="/login" className="flex-1"><Button variant="outline" className="w-full" size="sm">Login</Button></Link>
-            <Link to="/login" className="flex-1"><Button className="w-full gradient-primary border-0" size="sm">Get Started</Button></Link>
-          </div>
         </div>
       )}
     </nav>
