@@ -47,18 +47,13 @@ const Navbar = () => {
           >
             Contact
           </a>
-          <a
-            href="https://expo.dev/artifacts/eas/fDwuZQ4FbELkUhzC8DGEHi.apk"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Button
+            size="sm"
+            className="gradient-primary border-0 gap-2 glow-teal"
+            onClick={() => window.location.href = "https://github.com/abdulmanan093/modular_mbbs/releases/download/v1.0.0/modular_mbbs.apk"}
           >
-            <Button
-              size="sm"
-              className="gradient-primary border-0 gap-2 glow-teal"
-            >
-              <Download className="h-4 w-4" /> Download App
-            </Button>
-          </a>
+            <Download className="h-4 w-4" /> Download App
+          </Button>
         </div>
 
         {/* Mobile toggle */}
@@ -101,19 +96,13 @@ const Navbar = () => {
           >
             Contact
           </a>
-          <a
-            href="https://expo.dev/artifacts/eas/fDwuZQ4FbELkUhzC8DGEHi.apk"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block"
+          <Button
+            size="sm"
+            className="w-full gradient-primary border-0 gap-2 glow-teal block"
+            onClick={() => window.location.href = "https://github.com/abdulmanan093/modular_mbbs/releases/download/v1.0.0/modular_mbbs.apk"}
           >
-            <Button
-              size="sm"
-              className="w-full gradient-primary border-0 gap-2 glow-teal"
-            >
-              <Download className="h-4 w-4" /> Download App
-            </Button>
-          </a>
+            <Download className="h-4 w-4" /> Download App
+          </Button>
         </div>
       )}
     </nav>

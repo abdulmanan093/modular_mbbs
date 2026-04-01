@@ -147,18 +147,13 @@ const Index = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5, duration: 0.6 }}
             >
-              <a
-                href="https://expo.dev/artifacts/eas/fDwuZQ4FbELkUhzC8DGEHi.apk"
-                target="_blank"
-                rel="noopener noreferrer"
+              <Button
+                size="lg"
+                className="gradient-primary border-0 text-base px-8 shadow-lg glow-teal gap-2"
+                onClick={() => window.location.href = "https://github.com/abdulmanan093/modular_mbbs/releases/download/v1.0.0/modular_mbbs.apk"}
               >
-                <Button
-                  size="lg"
-                  className="gradient-primary border-0 text-base px-8 shadow-lg glow-teal gap-2"
-                >
-                  <Download className="h-5 w-5" /> Download App
-                </Button>
-              </a>
+                <Download className="h-5 w-5" /> Download App
+              </Button>
               <a href="#contact">
                 <Button
                   size="lg"
@@ -425,18 +420,13 @@ const Index = () => {
                 blocks, subjects and chapters.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
-                <a
-                  href="https://expo.dev/artifacts/eas/fDwuZQ4FbELkUhzC8DGEHi.apk"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <Button
+                  size="lg"
+                  className="bg-primary-foreground text-primary hover:bg-primary-foreground/90 px-8 gap-2"
+                  onClick={() => window.location.href = "https://github.com/abdulmanan093/modular_mbbs/releases/download/v1.0.0/modular_mbbs.apk"}
                 >
-                  <Button
-                    size="lg"
-                    className="bg-primary-foreground text-primary hover:bg-primary-foreground/90 px-8 gap-2"
-                  >
-                    <Download className="h-4 w-4" /> Download App
-                  </Button>
-                </a>
+                  <Download className="h-4 w-4" /> Download App
+                </Button>
                 <a href="#contact">
                   <Button
                     size="lg"
